@@ -1,10 +1,10 @@
 <?php
 
 // get the data from the POST
-$book = $_POST['newBook'];
-$chapter = $_POST['newChapter'];
-$verse = $_POST['newVerse'];
-$content = $_POST['newContent'];
+$newBook = $_POST['newBook'];
+$newChapter = $_POST['newChapter'];
+$newVerse = $_POST['newVerse'];
+$newContent = $_POST['newContent'];
 $newTopic = $_POST['newTopic'];
 
 require("connectDB.php");
@@ -14,10 +14,10 @@ $db = get_db();
 	$statement = $db->prepare($query);
 	// Now we bind the values to the placeholders. This does some nice things
 	// including sanitizing the input with regard to sql commands.
-	$statement->bindValue(':book', $book);
-	$statement->bindValue(':chapter', $chapter);
-	$statement->bindValue(':verse', $verse);
-	$statement->bindValue(':content', $content);
+	$statement->bindValue(':book', $newBook);
+	$statement->bindValue(':chapter', $newChapter);
+	$statement->bindValue(':verse', $newVerse);
+	$statement->bindValue(':content', $newContent);
 	$statement->execute();
 	// get the new id
 	$scriptureId = $db->lastInsertId("scripture_id_seq");
@@ -28,7 +28,7 @@ $db = get_db();
     $statement->execute();
     
 	// Now go through each topic id in the list from the user's checkboxes
-	foreach ($topicIds as $topicId)
+	foreach ($newTopic as $topicId)
 	{
 		$statement = $db->prepare('INSERT INTO scripture_topic(scriptureid, topicid) VALUES(:scriptureId, :topicId)');
 		// Then, bind the values
