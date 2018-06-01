@@ -29,10 +29,10 @@ try
 	{
 		echo "ScriptureId: $scriptureId, topicId: $topicId";
 		// Again, first prepare the statement
-		$statement = $db->prepare('INSERT INTO scripture_topic(scriptureid, topicid) VALUES(:scriptureid, :topicid)');
+		$statement = $db->prepare('INSERT INTO scripture_topic(scriptureid, topicid) VALUES(:scriptureId, :topicId)');
 		// Then, bind the values
-		$statement->bindValue(':scriptureid', $scriptureId);
-		$statement->bindValue(':topicid', $topicId);
+		$statement->bindValue(':scriptureId', $scriptureId);
+		$statement->bindValue(':topicId', $topicId);
 		$statement->execute();
 	}
 }
