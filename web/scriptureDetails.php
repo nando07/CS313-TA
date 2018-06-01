@@ -32,8 +32,8 @@ try
 		// get the topics now for this scripture
 		$stmtTopics = $db->prepare('SELECT name FROM topic t'
 			. ' INNER JOIN scripture_topic st ON st.topicid = t.id'
-			. ' WHERE st.scriptureid = :scriptureId');
-		$stmtTopics->bindValue(':scriptureId', $row['id']);
+			. ' WHERE st.scriptureid = :scriptureid');
+		$stmtTopics->bindValue(':scriptureid', $row['id']);
 		$stmtTopics->execute();
 		// Go through each topic in the result
 		while ($topicRow = $stmtTopics->fetch(PDO::FETCH_ASSOC))
