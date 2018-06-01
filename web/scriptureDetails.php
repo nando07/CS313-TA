@@ -56,6 +56,17 @@ catch (PDOException $ex)
     <input type='checkbox' name='newTopicCheck' id='newTopicCheck'>
     <input type="text" id="" name="newTopic" placeholder="New Topic"/>
 	<br /><br />
+	<input type="text" id="newBook" name="newBook" placeholder="book" />
+	<br /><br />
+
+	<input type="text" id="newChapter" name="newChapter" placeholder="chapter"/>
+	<br /><br />
+
+	<input type="text" id="newVerse" name="newVerse" placeholder="chapter"/>
+	<br /><br />
+
+	<textarea id="newContent" name="newContent" rows="5" cols="80"></textarea>
+	<br /><br />
 </div>
 
 </body>
