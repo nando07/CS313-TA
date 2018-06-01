@@ -48,7 +48,7 @@ try
 		// The trick here is that we need a unique id for each one. In this case,
 		// we use "chkTopics" followed by the id, so that it becomes something like
 		// "chkTopics1" and "chkTopics2", etc.
-		echo "<label for='topics$id'>$name</label><br />";
+		echo "<label for='topic$id'>$name</label><br />";
 		// put a newline out there just to make our "view source" experience better
 		echo "\n";
 	}
