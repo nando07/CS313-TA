@@ -52,6 +52,7 @@ catch (PDOException $ex)
 
 </div>
 <div>
+  <form name="newScriptureForm" action="scriptureDetails.php">
    <label>New Topic:</label>
     <input type='checkbox' name='newTopicCheck' id='newTopicCheck'>
     <input type="text" id="" name="newTopic" placeholder="New Topic"/>
@@ -67,7 +68,13 @@ catch (PDOException $ex)
 
 	<textarea id="newContent" name="newContent" rows="5" cols="80"></textarea>
 	<br /><br />
+	<input type="submit" name="submit" value="addNewScripture">
+</form>
 </div>
+<?php
+    
+    
+
 
 </body>
 </html>
