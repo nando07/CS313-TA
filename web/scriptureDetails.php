@@ -51,6 +51,11 @@ catch (PDOException $ex)
 ?>
 
 </div>
+<div>
+    <input type='checkbox' name='newTopicCheck' id='newTopicCheck'>";
+    <input type="text" id="" name="newTopic" placeholder="New Topic"/>
+	<br /><br />
+</div>
 
 </body>
 </html>
