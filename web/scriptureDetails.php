@@ -71,7 +71,7 @@ catch (PDOException $ex)
 	<input type="submit" name="submit" value="addNewScripture">
 </form>
 </div>
-<?php
+
     
     
 
