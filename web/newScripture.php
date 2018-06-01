@@ -22,9 +22,8 @@ $db = get_db();
 	// get the new id
 	$scriptureId = $db->lastInsertId("scripture_id_seq");
     
-    
-    $query = 'INSERT INTO topic(name) VALUES(:name)';
-	$statement = $db->prepare($query);
+    $statement = $db->prepare('INSERT INTO topic(name) VALUES(:name)');
+
     $statement->bindValue(':name', $newTopic);
     $statement->execute();
     
