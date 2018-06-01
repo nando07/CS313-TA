@@ -31,8 +31,8 @@ try
 		echo 'Topics: ';
 		// get the topics now for this scripture
 		$stmtTopics = $db->prepare('SELECT name FROM topic t'
-			. ' INNER JOIN scripture_topic st ON st.topicId = t.id'
-			. ' WHERE st.scriptureId = :scriptureId');
+			. ' INNER JOIN scripture_topic st ON st.topicid = t.id'
+			. ' WHERE st.scriptureid = :scriptureId');
 		$stmtTopics->bindValue(':scriptureId', $row['id']);
 		$stmtTopics->execute();
 		// Go through each topic in the result
