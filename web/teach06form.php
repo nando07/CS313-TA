@@ -42,13 +42,13 @@ try
 		$id = $row['id'];
 		$name = $row['name'];
 		// Notice that we want the value of the checkbox to be the id of the label
-		echo "<input type='checkbox' name='chkTopics[]' id='chkTopics$id' value='$id'>";
+		echo "<input type='checkbox' name='topic[]' id='topic$id' value='$id'>";
 		// Also, so they can click on the label, and have it select the checkbox,
 		// we need to use a label tag, and have it point to the id of the input element.
 		// The trick here is that we need a unique id for each one. In this case,
 		// we use "chkTopics" followed by the id, so that it becomes something like
 		// "chkTopics1" and "chkTopics2", etc.
-		echo "<label for='chkTopics$id'>$name</label><br />";
+		echo "<label for='topics$id'>$name</label><br />";
 		// put a newline out there just to make our "view source" experience better
 		echo "\n";
 	}
