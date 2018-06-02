@@ -53,9 +53,6 @@ try
 		echo "<label for='topic$id'>$name</label><br />";
 		// put a newline out there just to make our "view source" experience better
 		echo "\n";
-        
-        echo $id;
-        $counter = $id;
 	}
 }
 catch (PDOException $ex)
