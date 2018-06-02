@@ -7,6 +7,7 @@ $db = get_db();
 
     <head>
         <title>Topic Entry</title>
+        <script src="script.js"></script>
     </head>
 
     <body>
@@ -124,18 +125,6 @@ catch (PDOException $ex)
 </div>
    
     </body>
-    <script type="text/javascript">
-   function myFunction() {     
-        $.ajax({
-type: "POST",
-url: "teach06.php",
-data: "",
-cache: false,
-success: function(html) {
-alert(html);
-}
-});
-   }
-    </script>
+    
 
     </html>
