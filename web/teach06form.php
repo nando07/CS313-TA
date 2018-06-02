@@ -70,7 +70,7 @@ catch (PDOException $ex)
 echo "<input type='checkbox' name='newTopic' id='topic$counter' value='$counter'>";
  echo "<input type='text' id='newName' name='newName' placeholder='name'/>";
     ?>
-                    <input type="submit" value="Add to Database" />
+                    <input type="submit" onclick="myFunction()" value="Add to Database" />
                     <br /><br />
 
 
@@ -125,6 +125,17 @@ catch (PDOException $ex)
    
     </body>
     <script type="text/javascript">
+   function myFunction() {     
+        $.ajax({
+type: "POST",
+url: "teach06.php",
+data: dataString,
+cache: false,
+success: function(html) {
+alert(html);
+}
+});
+   }
     </script>
 
     </html>
