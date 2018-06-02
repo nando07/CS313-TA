@@ -15,7 +15,7 @@ $db = get_db();
 
             <h1>Enter New Scriptures and Topics</h1>
 
-            <form id="mainForm">
+            <form id="mainForm" action="myFunction()">
 
 
                 <input type="text" id="book" name="book" placeholder="book" />
@@ -71,7 +71,7 @@ catch (PDOException $ex)
 echo "<input type='checkbox' name='newTopic' id='topic$counter' value='$counter'>";
  echo "<input type='text' id='newName' name='newName' placeholder='name'/>";
     ?>
-                    <input type="submit" onclick="myFunction()" value="Add to Database" />
+                    <input type="submit" value="Add to Database" />
                     <br /><br />
 
 
