@@ -55,7 +55,7 @@ catch (PDOException $ex)
   <form name="newScriptureForm" action="newScripture.php">
    <label>New Topic:</label>
     <input type='checkbox' name='newTopicCheck' id='newTopicCheck'>
-    <input type="text" id="" name="newTopic" placeholder="New Topic"/>
+    <input type="text" id="newTopic" name="newTopic" placeholder="New Topic"/>
 	<br /><br />
 	<input type="text" id="newBook" name="newBook" placeholder="book" />
 	<br /><br />

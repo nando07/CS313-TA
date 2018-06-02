@@ -21,15 +21,13 @@ $db = get_db();
 	$statement->execute();
 	// get the new id
 	$scriptureId = $db->lastInsertId("scripture_id_seq");
-    
+   
     $statement = $db->prepare('INSERT INTO topic(name) VALUES(:name)');
 
     $statement->bindValue(':name', $newTopic);
     $statement->execute();
-    
-	// Now go through each topic id in the list from the user's checkboxes
-	foreach ($newTopic as $topicId)
-	{
+ 
+ $topicId = $db->lastInsertId("topic_id_seq");
 		$statement = $db->prepare('INSERT INTO scripture_topic(scriptureid, topicid) VALUES(:scriptureId, :topicId)');
 		// Then, bind the values
 		$statement->bindValue(':scriptureId', $scriptureId);
