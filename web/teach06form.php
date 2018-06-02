@@ -55,7 +55,7 @@ try
 		echo "\n";
         
         echo $id;
-        $counter++;
+        $counter = $id;
 	}
 }
 catch (PDOException $ex)
