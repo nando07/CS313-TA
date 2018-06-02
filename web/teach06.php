@@ -6,6 +6,8 @@ $chapter = $_POST['chapter'];
 $verse = $_POST['verse'];
 $content = $_POST['content'];
 $topicIds = $_POST['topic'];
+$newTopic = $POST['name'];
+
 
 require("connectDB.php");
 $db = get_db();
@@ -22,6 +24,11 @@ try
 	$statement->bindValue(':verse', $verse);
 	$statement->bindValue(':content', $content);
 	$statement->execute();
+    
+    $statement = $db->prepare('INSERT INTO topic(name) VALUES(:name)');
+    $statement->bindValue(':name', $newTopic);
+    $statement->execute();
+    
 	// get the new id
 	$scriptureId = $db->lastInsertId("scripture_id_seq");
 	// Now go through each topic id in the list from the user's checkboxes
