@@ -8,8 +8,8 @@ $newContent = $_POST['newContent'];
 $newTopic = $_POST['newTopic'];
 
 
-//require("connectDB.php");
-//$db = get_db();
+require("connectDB.php");
+$db = get_db();
 //    
 //    $query = 'INSERT INTO scripture(book, chapter, verse, content) VALUES(:book, :chapter, :verse, :content)';
 //	$statement = $db->prepare($query);
