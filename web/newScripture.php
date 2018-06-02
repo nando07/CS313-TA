@@ -11,15 +11,15 @@ $newTopic = $_POST['newTopic'];
 require("connectDB.php");
 $db = get_db();
 //    
-$query = 'INSERT INTO scripture(book, chapter, verse, content) VALUES(:newBook, :newChapter, :newVerse, :newContent)';
-	$statement = $db->prepare($query);
+$q = 'INSERT INTO scripture(book, chapter, verse, content) VALUES(:newBook, :newChapter, :newVerse, :newContent)';
+	$stmt = $db->prepare($q);
 //	// Now we bind the values to the placeholders. This does some nice things
 //	// including sanitizing the input with regard to sql commands.
-	$statement->bindValue(':newBook', $newBook);
-	$statement->bindValue(':newChapter', $newChapter);
-	$statement->bindValue(':newVerse', $newVerse);
-	$statement->bindValue(':newContent', $newContent);
-	$statement->execute();
+	$stmt->bindValue(':newBook', $newBook);
+	$stmt->bindValue(':newChapter', $newChapter);
+	$stmt->bindValue(':newVerse', $newVerse);
+	$stmt->bindValue(':newContent', $newContent);
+	$stmt->execute();
 //	// get the new id
 //	$scriptureId = $db->lastInsertId("scripture_id_seq");
 
