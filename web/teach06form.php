@@ -65,7 +65,6 @@ catch (PDOException $ex)
 	die();
 }
 
-	<br />
 	
 echo "<input type='checkbox' name='newTopic' id='topic$counter' value='$counter'>";
  echo "<input type='text' id='newName' name='newName' placeholder='name'/>";
