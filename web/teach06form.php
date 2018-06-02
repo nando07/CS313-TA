@@ -31,13 +31,14 @@ $db = get_db();
 	<label>Topics:</label><br />
 
 <?php
+    
+    $counter = 0;
 try
 {
 	
 	$statement = $db->prepare('SELECT id, name FROM topic');
 	$statement->execute();
     
-    $counter = 0;
 	// Go through each result
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
@@ -53,6 +54,7 @@ try
 		echo "<label for='topic$id'>$name</label><br />";
 		// put a newline out there just to make our "view source" experience better
 		echo "\n";
+        $counter = $id;
 	}
 }
 catch (PDOException $ex)
@@ -62,12 +64,15 @@ catch (PDOException $ex)
 	echo "Error connecting to DB. Details: $ex";
 	die();
 }
-?>
+
 	<br />
-<input type='checkbox' name='newTopic' id='newTopic' value='newTopic'>
- <input type='text' id='newName' name='newName' placeholder='name'/>
+	
+echo "<input type='checkbox' name='newTopic' id='topic$counter' value='$counter'>";
+ echo "<input type='text' id='newName' name='newName' placeholder='name'/>";
+    ?>
 	<input type="submit" value="Add to Database" />
 	<br /><br />
+
 
 </form>
 

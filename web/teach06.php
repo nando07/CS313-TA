@@ -7,6 +7,7 @@ $verse = $_POST['verse'];
 $content = $_POST['content'];
 $topicIds = $_POST['topic'];
 $newTopic = $_POST['newName'];
+$newCheck = $_POST['newTopic'];
 
 
 require("connectDB.php");
@@ -28,9 +29,15 @@ try
     $statement = $db->prepare('INSERT INTO topic(name) VALUES(:name)');
     $statement->bindValue(':name', $newTopic);
     $statement->execute();
+    $scriptureId = $db->lastInsertId("scripture_id_seq");
+    $statement = $db->prepare('INSERT INTO scripture_topic(scriptureid, topicid) VALUES(:scriptureId, :topicId)');
+		// Then, bind the values
+		$statement->bindValue(':scriptureId', $scriptureId);
+		$statement->bindValue(':topicId', $newCheck);
+		$statement->execute();
     
 	// get the new id
-	$scriptureId = $db->lastInsertId("scripture_id_seq");
+
 	// Now go through each topic id in the list from the user's checkboxes
 	foreach ($topicIds as $topicId)
 	{
