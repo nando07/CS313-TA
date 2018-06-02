@@ -14,7 +14,7 @@ $db = get_db();
 
             <h1>Enter New Scriptures and Topics</h1>
 
-            <form id="mainForm" action="" method="POST">
+            <form id="mainForm">
 
 
                 <input type="text" id="book" name="book" placeholder="book" />
@@ -129,7 +129,7 @@ catch (PDOException $ex)
         $.ajax({
 type: "POST",
 url: "teach06.php",
-data: dataString,
+data: "",
 cache: false,
 success: function(html) {
 alert(html);
