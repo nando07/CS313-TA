@@ -65,19 +65,10 @@ catch (PDOException $ex)
 	echo "Error connecting to DB. Details: $ex";
 	die();
 }
- 
-    $counter++;
-    echo "<p>$counter</p>";
-    
-    echo "<input type='checkbox' name='newTopic' id='topic$counter' value='$counter'>";
-    echo "<input type='text' id='newName' name='newName' placeholder='name'/>";
-    
-    
-    
-
 ?>
 	<br />
-
+<input type='checkbox' name='newTopic' id='topic$counter' value='$counter'>";
+ <input type='text' id='newName' name='newName' placeholder='name'/>";
 	<input type="submit" value="Add to Database" />
 
 </form>
