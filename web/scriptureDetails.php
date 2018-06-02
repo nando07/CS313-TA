@@ -63,7 +63,7 @@ catch (PDOException $ex)
 	<input type="text" id="newChapter" name="newChapter" placeholder="chapter"/>
 	<br /><br />
 
-	<input type="text" id="newVerse" name="newVerse" placeholder="chapter"/>
+	<input type="text" id="newVerse" name="newVerse" placeholder="verse"/>
 	<br /><br />
 
 	<textarea id="newContent" name="newContent" rows="5" cols="80"></textarea>
