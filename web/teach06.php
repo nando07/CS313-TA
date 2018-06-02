@@ -6,7 +6,7 @@ $chapter = $_POST['chapter'];
 $verse = $_POST['verse'];
 $content = $_POST['content'];
 $topicIds = $_POST['topic'];
-$newTopic = $POST['name'];
+$newTopic = $POST['newName'];
 
 
 require("connectDB.php");

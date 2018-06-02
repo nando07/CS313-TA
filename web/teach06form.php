@@ -22,7 +22,7 @@ $db = get_db();
 	<input type="text" id="chapter" name="chapter" placeholder="chapter"/>
 	<br /><br />
 
-	<input type="text" id="verse" name="verse" placeholder="chapter"/>
+	<input type="text" id="verse" name="verse" placeholder="verse"/>
 	<br /><br />
 
 	<textarea id="content" name="content" rows="5" cols="80"></textarea>
@@ -64,7 +64,7 @@ catch (PDOException $ex)
     $topicId = $db->lastInsertId("topic_id_seq");
     
     echo "<input type='checkbox' name='newTopic' id='topic$topicId' value='$topicId'>";
-    echo "<input type='text' id='name' name='name' placeholder='name'/>";
+    echo "<input type='text' id='newName' name='newName' placeholder='name'/>";
     
     
     
