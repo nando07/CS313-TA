@@ -81,7 +81,7 @@ catch (PDOException $ex)
     function check(checked)
     {
      
-        if (document.getElementById(checked) = true) {
+        if (document.getElementById(checked).checked = true) {
             <?php
             echo "<input type='text' id='name' name='name' placeholder='name'/>";
             ?>
