@@ -43,6 +43,6 @@ $db = get_db();
 //		$statement->bindValue(':topicId', $topicId);
 //		$statement->execute();
 //
-//header("Location: scriptureDetails.php");
-//die();
+header("Location: scriptureDetails.php");
+die();
 ?>
