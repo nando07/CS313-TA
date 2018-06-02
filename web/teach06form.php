@@ -66,10 +66,10 @@ catch (PDOException $ex)
 	die();
 }
  
-    $topicId = $db->lastInsertId("topic_id_seq");
+    $counter++;
     echo "<p>$counter</p>";
     
-    echo "<input type='checkbox' name='newTopic' id='topic$topicId' value='$topicId'>";
+    echo "<input type='checkbox' name='newTopic' id='topic$counter' value='$counter'>";
     echo "<input type='text' id='newName' name='newName' placeholder='name'/>";
     
     
