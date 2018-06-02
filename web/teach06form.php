@@ -67,9 +67,10 @@ catch (PDOException $ex)
 }
 ?>
 	<br />
-<input type='checkbox' name='newTopic' id='topic$counter' value='$counter'>";
- <input type='text' id='newName' name='newName' placeholder='name'/>";
+<input type='checkbox' name='newTopic' id='topic$counter' value='$counter'>
+ <input type='text' id='newName' name='newName' placeholder='name'/>
 	<input type="submit" value="Add to Database" />
+	<br /><br />
 
 </form>
 
