@@ -8,12 +8,6 @@ $newContent = $_POST['newContent'];
 $newTopic = $_POST['newTopic'];
 
 
-echo $newBook;
-echo $newChapter;
-echo $newVerse;
-echo $newContent;
-echo $newTopic;
-
 require("connectDB.php");
 $db = get_db();
     
