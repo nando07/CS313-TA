@@ -33,7 +33,6 @@ $db = get_db();
 		$statement->bindValue(':scriptureId', $scriptureId);
 		$statement->bindValue(':topicId', $topicId);
 		$statement->execute();
-	}
 
 header("Location: scriptureDetails.php");
 die();
