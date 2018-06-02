@@ -36,6 +36,8 @@ try
 	
 	$statement = $db->prepare('SELECT id, name FROM topic');
 	$statement->execute();
+    
+    $counter = 0;
 	// Go through each result
 	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
@@ -51,6 +53,7 @@ try
 		echo "<label for='topic$id'>$name</label><br />";
 		// put a newline out there just to make our "view source" experience better
 		echo "\n";
+        $counter++;
 	}
 }
 catch (PDOException $ex)
@@ -62,7 +65,7 @@ catch (PDOException $ex)
 }
  
     $topicId = $db->lastInsertId("topic_id_seq");
-    echo "<p>$topicId</p>";
+    echo "<p>$counter</p>";
     
     echo "<input type='checkbox' name='newTopic' id='topic$topicId' value='$topicId'>";
     echo "<input type='text' id='newName' name='newName' placeholder='name'/>";
