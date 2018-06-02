@@ -63,7 +63,10 @@ catch (PDOException $ex)
  
     $topicId = $db->lastInsertId("topic_id_seq");
     
-    echo "<input type='checkbox' name='newTopic' id='topic$topicId' value='$topicId' onclick='check('topic$topicId')'>";
+    echo "<input type='checkbox' name='newTopic' id='topic$topicId' value='$topicId'>";
+    echo "<input type='text' id='name' name='name' placeholder='name'/>";
+    
+    
     
 
 ?>
@@ -78,20 +81,6 @@ catch (PDOException $ex)
 
 </body>
 <script type="text/javascript">
-    function check(checked)
-    {
-     
-        if (document.getElementById(checked).checked = true) {
-            <?php
-            echo "<input type='text' id='name' name='name' placeholder='name'/>";
-            ?>
-    
-        } else {
-             <?php
-            echo " ";
-            ?>
-        }
-    }
     
 </script>
 </html>
