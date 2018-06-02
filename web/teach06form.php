@@ -60,6 +60,13 @@ catch (PDOException $ex)
 	echo "Error connecting to DB. Details: $ex";
 	die();
 }
+ 
+    $topicId = $db->lastInsertId("topic_id_seq");
+    echo "<input type='checkbox' name='newTopic' id='topic$topicId' value='$topicId'>";
+    
+    if (isset($_POST['newTopic']) {
+    echo "<input type="text" id="name" name="name" placeholder="name"/>";
+    }
 ?>
 	<br />
 
