@@ -2,35 +2,36 @@
 require("connectDB.php");
 $db = get_db();
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Topic Entry</title>
-</head>
+    <!DOCTYPE html>
+    <html>
 
-<body>
-<div>
+    <head>
+        <title>Topic Entry</title>
+    </head>
 
-<h1>Enter New Scriptures and Topics</h1>
+    <body>
+        <div>
 
-<form id="mainForm" action="teach06.php" method="POST">
+            <h1>Enter New Scriptures and Topics</h1>
 
-  
-    <input type="text" id="book" name="book" placeholder="book" />
-	<br /><br />
+            <form id="mainForm" action="teach06.php" method="POST">
 
-	<input type="text" id="chapter" name="chapter" placeholder="chapter"/>
-	<br /><br />
 
-	<input type="text" id="verse" name="verse" placeholder="verse"/>
-	<br /><br />
+                <input type="text" id="book" name="book" placeholder="book" />
+                <br /><br />
 
-	<textarea id="content" name="content" rows="5" cols="80"></textarea>
-	<br /><br />
+                <input type="text" id="chapter" name="chapter" placeholder="chapter" />
+                <br /><br />
 
-	<label>Topics:</label><br />
+                <input type="text" id="verse" name="verse" placeholder="verse" />
+                <br /><br />
 
-<?php
+                <textarea id="content" name="content" rows="5" cols="80"></textarea>
+                <br /><br />
+
+                <label>Topics:</label><br />
+
+                <?php
     
     $counter = 0;
 try
@@ -69,17 +70,61 @@ catch (PDOException $ex)
 echo "<input type='checkbox' name='newTopic' id='topic$counter' value='$counter'>";
  echo "<input type='text' id='newName' name='newName' placeholder='name'/>";
     ?>
-	<input type="submit" value="Add to Database" />
-	<br /><br />
+                    <input type="submit" value="Add to Database" />
+                    <br /><br />
 
 
-</form>
+            </form>
 
+
+       
+       
+        </div>
+
+   <div>
+
+<h1>Scripture and Topic List</h1>
+
+<?php
+try
+{
+	
+	// prepare the statement
+	$statement = $db->prepare('SELECT id, book, chapter, verse, content FROM scripture');
+	$statement->execute();
+	// Go through each result
+	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+	{
+		echo '<p>';
+		echo '<strong>' . $row['book'] . ' ' . $row['chapter'] . ':';
+		echo $row['verse'] . '</strong>' . ' - ' . $row['content'];
+		echo '<br />';
+		echo 'Topics: ';
+		// get the topics now for this scripture
+		$stmtTopics = $db->prepare('SELECT name FROM topic t'
+			. ' INNER JOIN scripture_topic st ON st.topicid = t.id'
+			. ' WHERE st.scriptureid = :scriptureid');
+		$stmtTopics->bindValue(':scriptureid', $row['id']);
+		$stmtTopics->execute();
+		// Go through each topic in the result
+		while ($topicRow = $stmtTopics->fetch(PDO::FETCH_ASSOC))
+		{
+			echo $topicRow['name'] . ' ';
+		}
+		echo '</p>';
+	}
+}
+catch (PDOException $ex)
+{
+	echo "Error with DB. Details: $ex";
+	die();
+}
+?>
 
 </div>
+   
+    </body>
+    <script type="text/javascript">
+    </script>
 
-</body>
-<script type="text/javascript">
-    
-</script>
-</html>
+    </html>
