@@ -62,6 +62,7 @@ catch (PDOException $ex)
 }
  
     $topicId = $db->lastInsertId("topic_id_seq");
+    echo "<p>$topicId</p>";
     
     echo "<input type='checkbox' name='newTopic' id='topic$topicId' value='$topicId'>";
     echo "<input type='text' id='newName' name='newName' placeholder='name'/>";
